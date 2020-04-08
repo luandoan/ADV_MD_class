@@ -1,0 +1,26 @@
+#!/bin/bash
+
+# qsub script for NewRiver 
+
+# NOTE: You will need to edit the Walltime, Resource Request, Queue, and Module lines
+# to suit the requirements of your job. You will also, of course have to replace the example job
+
+#PBS  -l nodes=1:ppn=2
+#PBS -l walltime=00:10:00
+#PBS -q normal_q
+#PBS -A MSE_MD_Class 
+#PBS -W group_list=newriver
+
+# #PBS -M yourpid@vt.edu
+# #PBS -m bea
+
+module purge
+module load intel/15.3   mvapich2/2.1   mkl/11.2.3  gsl/2.4
+module load lammps/11Aug17
+
+cd $PBS_O_WORKDIR
+
+mpirun -np $PBS_NP lmp_mpi < in.melt > output.txt
+
+exit;
+
