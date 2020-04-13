@@ -1,0 +1,36 @@
+units		  metal
+atom_style	  atomic 
+timestep 	  0.002 
+dimension	  3
+boundary	  p p p
+
+lattice         fcc  3.615 
+region          Wbox   block 0 10 0 10 0 10
+
+#Here 1 is number of atom types, Wbox is region-id
+create_box      1 Wbox
+
+#Here 1 is ith atom type, box is keyword
+create_atoms    1 box
+
+##Be careful to use eam/alloy type Mishin copper potential with funcfl format
+
+pair_style eam/alloy
+pair_coeff * * /home/xmbai/MD_Class_LAMMPS/2019_Class/lammps-12Dec18/potentials/Cu_mishin1.eam.alloy Cu
+
+variable T1 equal 300.0
+velocity all create ${T1} 234965 mom yes dist gaussian loop all
+
+neighbor 1.0 bin
+neigh_modify every 1 delay 0 check yes
+
+fix npt_thermostat all npt temp ${T1} ${T1} 0.2 iso 0.0 0.0 0.2 drag 0.20
+
+dump atompos all custom 1000 dump.pos.*.dat id type x y z vx vy vz
+
+thermo_style   custom step time temp lx vol pe press pxx
+thermo_modify  flush yes
+thermo 100
+
+run 10000
+
