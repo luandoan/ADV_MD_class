@@ -16,7 +16,7 @@ create_atoms    1 box
 ##Be careful to use eam/alloy type Mishin copper potential with funcfl format
 
 pair_style eam/alloy
-pair_coeff * * /home/xmbai/MD_Class_LAMMPS/2019_Class/lammps-12Dec18/potentials/Cu_mishin1.eam.alloy Cu
+pair_coeff * * ~/home/ldoan/mylammps/potentials/Cu_mishin1.eam.alloy Cu
 
 variable T1 equal 300.0
 velocity all create ${T1} 234965 mom yes dist gaussian loop all

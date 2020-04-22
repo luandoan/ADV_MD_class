@@ -1,0 +1,8 @@
+LAMMPS (3 Mar 2020)
+Lattice spacing in x,y,z = 3.615 3.615 3.615
+Created orthogonal box = (0 0 0) to (36.15 36.15 36.15)
+  1 by 1 by 2 MPI processor grid
+Created 4000 atoms
+  create_atoms CPU = 0.000664711 secs
+ERROR on proc 0: Cannot open EAM potential file /home/xmbai/MD_Class_LAMMPS/2020_Class/lammps-3Mar20/potentials/Cu_mishin1.eam.alloy (../pair_eam_alloy.cpp:131)
+Last command: pair_coeff * * /home/xmbai/MD_Class_LAMMPS/2020_Class/lammps-3Mar20/potentials/Cu_mishin1.eam.alloy Cu

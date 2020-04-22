@@ -11,16 +11,16 @@
 #PBS -A MSE_MD_Class 
 #PBS -W group_list=newriver
 
-# #PBS -M yourpid@vt.edu
+# #PBS -M luandoan@vt.edu
 # #PBS -m bea
 
 module purge
 module load intel/15.3
 module load mvapich2/2.1 
 
-cd $PBS_O_WORKDIR
+cd $ADV_MD_class
 
-mpirun -np $PBS_NP /home/xmbai/MD_Class_LAMMPS/2020_Class/lammps-3Mar20/src/lmp_mvapich2_intel < in.melt > output.txt
+mpirun -np $ADV_MD_class /home/luandoan/ADV_MD_class/lammps-3Mar20/src/lmp_mvapich2_intel < in.melt > output.txt
 
 exit;
 

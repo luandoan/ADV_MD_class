@@ -1,0 +1,27 @@
+LAMMPS (3 Mar 2020)
+units		  metal
+atom_style	  atomic
+timestep 	  0.002
+dimension	  3
+boundary	  p p p
+
+lattice         fcc  3.615
+Lattice spacing in x,y,z = 3.615 3.615 3.615
+region          Wbox   block 0 10 0 10 0 10
+
+#Here 1 is number of atom types, Wbox is region-id
+create_box      1 Wbox
+Created orthogonal box = (0 0 0) to (36.15 36.15 36.15)
+  1 by 1 by 2 MPI processor grid
+
+#Here 1 is ith atom type, box is keyword
+create_atoms    1 box
+Created 4000 atoms
+  create_atoms CPU = 0.000664711 secs
+
+##Be careful to use eam/alloy type Mishin copper potential with funcfl format
+
+pair_style eam/alloy
+pair_coeff * * /home/xmbai/MD_Class_LAMMPS/2020_Class/lammps-3Mar20/potentials/Cu_mishin1.eam.alloy Cu
+ERROR on proc 0: Cannot open EAM potential file /home/xmbai/MD_Class_LAMMPS/2020_Class/lammps-3Mar20/potentials/Cu_mishin1.eam.alloy (../pair_eam_alloy.cpp:131)
+Last command: pair_coeff * * /home/xmbai/MD_Class_LAMMPS/2020_Class/lammps-3Mar20/potentials/Cu_mishin1.eam.alloy Cu
