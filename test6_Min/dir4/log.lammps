@@ -3,14 +3,14 @@ units		  metal
 atom_style	  atomic
 timestep 	  0.002
 dimension	  3
-boundary	  p p p
+boundary	  s p p
 
 read_data Cu_SC_N4000.dat
   orthogonal box = (0 0 0) to (36.15 36.15 36.15)
   2 by 1 by 2 MPI processor grid
   reading atoms ...
   4000 atoms
-  read_data CPU = 0.00364208 secs
+  read_data CPU = 0.0138464 secs
 
 ##Be careful to use eam/alloy type Mishin copper potential with funcfl format
 
@@ -34,49 +34,49 @@ Neighbor list info ...
   max neighbors/atom: 2000, page size: 100000
   master list distance cutoff = 6.50679
   ghost atom cutoff = 6.50679
-  binsize = 3.25339, bins = 12 12 12
+  binsize = 3.25339, bins = 11 12 12
   1 neighbor lists, perpetual/occasional/extra = 1 0 0
   (1) pair eam/alloy, perpetual
       attributes: half, newton on
       pair build: half/bin/atomonly/newton
       stencil: half/bin/3d/newton
       bin: standard
-Per MPI rank memory allocation (min/avg/max) = 5.892 | 5.892 | 5.892 Mbytes
+Per MPI rank memory allocation (min/avg/max) = 5.864 | 5.864 | 5.864 Mbytes
 Step Time Temp Lx Volume PotEng Press Pxx 
-       0            0            0        36.15    47241.633   -14160.873   -86.025761   -86.025761 
-       1        0.002            0        36.15    47241.633   -14160.873   -86.025761   -86.025761 
-Loop time of 0.00925165 on 4 procs for 1 steps with 4000 atoms
+       0            0            0     34.34973        44889    -13940.55   -9358.4478   -4336.2129 
+      19        0.038            0     34.34973        44889   -13941.409   -5840.7818    5.0975978 
+Loop time of 0.066245 on 4 procs for 19 steps with 4000 atoms
 
-168.9% CPU use with 4 MPI tasks x no OpenMP threads
+88.5% CPU use with 4 MPI tasks x no OpenMP threads
 
 Minimization stats:
   Stopping criterion = energy tolerance
   Energy initial, next-to-last, final = 
-         -14160.873242      -14160.873242      -14160.873242
-  Force two-norm initial, final = 1.21364e-12 1.10401e-12
-  Force max component initial, final = 2.92301e-14 2.91746e-14
-  Final line search alpha, max atom move = 1 2.91746e-14
-  Iterations, force evaluations = 1 2
+        -13940.5498758     -13941.4090884     -13941.4090887
+  Force two-norm initial, final = 3.18422 0.000804239
+  Force max component initial, final = 0.126799 2.61725e-05
+  Final line search alpha, max atom move = 1 2.61725e-05
+  Iterations, force evaluations = 19 38
 
 MPI task timing breakdown:
 Section |  min time  |  avg time  |  max time  |%varavg| %total
 ---------------------------------------------------------------
-Pair    | 0.0040252  | 0.0047668  | 0.0054247  |   0.9 | 51.52
+Pair    | 0.048726   | 0.055603   | 0.060016   |   1.9 | 83.94
 Neigh   | 0          | 0          | 0          |   0.0 |  0.00
-Comm    | 0.00015116 | 0.00081003 | 0.0015516  |   0.0 |  8.76
+Comm    | 0.0019979  | 0.0063984  | 0.013267   |   5.6 |  9.66
 Output  | 0          | 0          | 0          |   0.0 |  0.00
 Modify  | 0          | 0          | 0          |   0.0 |  0.00
-Other   |            | 0.003675   |            |       | 39.72
+Other   |            | 0.004243   |            |       |  6.41
 
 Nlocal:    1000 ave 1000 max 1000 min
 Histogram: 4 0 0 0 0 0 0 0 0 0
-Nghost:    2901 ave 2901 max 2901 min
+Nghost:    2213 ave 2213 max 2213 min
 Histogram: 4 0 0 0 0 0 0 0 0 0
-Neighs:    43000 ave 43000 max 43000 min
-Histogram: 4 0 0 0 0 0 0 0 0 0
+Neighs:    40300 ave 40870 max 39730 min
+Histogram: 2 0 0 0 0 0 0 0 0 2
 
-Total # of neighbors = 172000
-Ave neighs/atom = 43
+Total # of neighbors = 161200
+Ave neighs/atom = 40.3
 Neighbor list builds = 0
 Dangerous builds = 0
 

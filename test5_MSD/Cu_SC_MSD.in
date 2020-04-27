@@ -16,21 +16,29 @@ create_atoms    1 box
 ##Be careful to use eam/alloy type Mishin copper potential with funcfl format
 
 pair_style eam/alloy
-pair_coeff * * ~/home/ldoan/mylammps/potentials/Cu_mishin1.eam.alloy Cu
+pair_coeff * * /home/ldoan/lammps-3Mar20/potentials/Cu_mishin1.eam.alloy Cu 
 
-variable T1 equal 300.0
-velocity all create ${T1} 234965 mom yes dist gaussian loop all
+variable T1 equal 2000.0
+velocity all create ${T1} 1924705  mom yes dist gaussian loop all
 
 neighbor 1.0 bin
 neigh_modify every 1 delay 0 check yes
 
 fix npt_thermostat all npt temp ${T1} ${T1} 0.2 iso 0.0 0.0 0.2 drag 0.20
 
-dump atompos all custom 1000 dump.pos.*.dat id type x y z vx vy vz
+dump atompos all custom 10000 dump.pos.*.dat id type x y z 
+dump atompos2 all custom 10000 dump2.pos.*.dat id type xu yu zu 
 
 thermo_style   custom step time temp lx vol pe press pxx
 thermo_modify  flush yes
 thermo 100
 
 run 10000
+
+compute my_msd all  msd com no
+fix my_msd_ave all ave/time 100 1 100 c_my_msd[1] c_my_msd[2] c_my_msd[3] c_my_msd[4] file A_MSD_All.dat
+
+
+run 50000
+
 

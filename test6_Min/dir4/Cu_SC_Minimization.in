@@ -2,14 +2,14 @@ units		  metal
 atom_style	  atomic 
 timestep 	  0.002 
 dimension	  3
-boundary	  p p p
+boundary	  s p p
 
 read_data Cu_SC_N4000.dat
 
 ##Be careful to use eam/alloy type Mishin copper potential with funcfl format
 
 pair_style eam/alloy
-pair_coeff * * /home/xmbai/MD_Class_LAMMPS/2020_Class/lammps-3Mar20/potentials/Cu_mishin1.eam.alloy Cu
+pair_coeff * * /home/ldoan/lammps-3Mar20/potentials/Cu_mishin1.eam.alloy Cu
 
 neighbor 1.0 bin
 neigh_modify every 1 delay 0 check yes

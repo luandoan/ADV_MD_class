@@ -5,12 +5,12 @@ timestep 	  0.002
 dimension	  3
 boundary	  p p p
 
-read_data Cu_SC_N4000.dat
+read_data Cu_SC_N4000_1int.dat
   orthogonal box = (0 0 0) to (36.15 36.15 36.15)
   2 by 1 by 2 MPI processor grid
   reading atoms ...
-  4000 atoms
-  read_data CPU = 0.00364208 secs
+  4001 atoms
+  read_data CPU = 0.00895572 secs
 
 ##Be careful to use eam/alloy type Mishin copper potential with funcfl format
 
@@ -43,41 +43,41 @@ Neighbor list info ...
       bin: standard
 Per MPI rank memory allocation (min/avg/max) = 5.892 | 5.892 | 5.892 Mbytes
 Step Time Temp Lx Volume PotEng Press Pxx 
-       0            0            0        36.15    47241.633   -14160.873   -86.025761   -86.025761 
-       1        0.002            0        36.15    47241.633   -14160.873   -86.025761   -86.025761 
-Loop time of 0.00925165 on 4 procs for 1 steps with 4000 atoms
+       0            0            0        36.15    47241.633   -14149.316    1486.8615    1486.8615 
+      26        0.052            0        36.15    47241.633   -14161.162    570.46812    570.46812 
+Loop time of 0.0831948 on 4 procs for 26 steps with 4001 atoms
 
-168.9% CPU use with 4 MPI tasks x no OpenMP threads
+89.2% CPU use with 4 MPI tasks x no OpenMP threads
 
 Minimization stats:
   Stopping criterion = energy tolerance
   Energy initial, next-to-last, final = 
-         -14160.873242      -14160.873242      -14160.873242
-  Force two-norm initial, final = 1.21364e-12 1.10401e-12
-  Force max component initial, final = 2.92301e-14 2.91746e-14
-  Final line search alpha, max atom move = 1 2.91746e-14
-  Iterations, force evaluations = 1 2
+        -14149.3162226     -14161.1622815     -14161.1622828
+  Force two-norm initial, final = 31.4011 0.00373622
+  Force max component initial, final = 12.8192 0.000963243
+  Final line search alpha, max atom move = 1 0.000963243
+  Iterations, force evaluations = 26 48
 
 MPI task timing breakdown:
 Section |  min time  |  avg time  |  max time  |%varavg| %total
 ---------------------------------------------------------------
-Pair    | 0.0040252  | 0.0047668  | 0.0054247  |   0.9 | 51.52
-Neigh   | 0          | 0          | 0          |   0.0 |  0.00
-Comm    | 0.00015116 | 0.00081003 | 0.0015516  |   0.0 |  8.76
+Pair    | 0.060557   | 0.067604   | 0.071925   |   1.7 | 81.26
+Neigh   | 0.0007925  | 0.0010788  | 0.0014906  |   0.9 |  1.30
+Comm    | 0.005173   | 0.0098166  | 0.017051   |   4.7 | 11.80
 Output  | 0          | 0          | 0          |   0.0 |  0.00
 Modify  | 0          | 0          | 0          |   0.0 |  0.00
-Other   |            | 0.003675   |            |       | 39.72
+Other   |            | 0.004695   |            |       |  5.64
 
-Nlocal:    1000 ave 1000 max 1000 min
-Histogram: 4 0 0 0 0 0 0 0 0 0
-Nghost:    2901 ave 2901 max 2901 min
-Histogram: 4 0 0 0 0 0 0 0 0 0
-Neighs:    43000 ave 43000 max 43000 min
-Histogram: 4 0 0 0 0 0 0 0 0 0
+Nlocal:    1000.25 ave 1186 max 851 min
+Histogram: 1 0 0 2 0 0 0 0 0 1
+Nghost:    2902.75 ave 3052 max 2717 min
+Histogram: 1 0 0 0 0 0 2 0 0 1
+Neighs:    43029 ave 50872 max 36840 min
+Histogram: 1 0 0 2 0 0 0 0 0 1
 
-Total # of neighbors = 172000
-Ave neighs/atom = 43
-Neighbor list builds = 0
+Total # of neighbors = 172116
+Ave neighs/atom = 43.0182
+Neighbor list builds = 1
 Dangerous builds = 0
 
 Total wall time: 0:00:00
